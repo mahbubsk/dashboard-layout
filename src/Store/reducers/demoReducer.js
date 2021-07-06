@@ -10,7 +10,6 @@ const demoReducer = (state=initialState, action) => {
                 ...state,
                 allDemo:newArr
             }
-            break;
     
         default:
             return state; 
