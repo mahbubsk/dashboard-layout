@@ -2,10 +2,11 @@ import React from 'react'
 import {
     Box, chakra, Icon
 } from "@chakra-ui/react";
+import {Link} from 'react-router-dom';
 
-function MenuItem({name,icon, hasChild, childIcon,active}) {
+function MenuItem({name,icon, isChild, childIcon,active, link}) {
     return (
-        <Box>
+        <Link to={link}>
             <Box 
                 alignItems="center"
                 d="flex"
@@ -13,7 +14,8 @@ function MenuItem({name,icon, hasChild, childIcon,active}) {
                 p="1"
                 _hover={{bg:"#4a5568"}}
                 bg={active && '#4a5568'}
-                ml={hasChild && '2'}
+                ml={isChild && '2'}
+                cursor="pointer"
             >
                 <Box w="60px" textAlign="center">
                     <Icon as={icon} style={{width:"60px"}}/>
@@ -23,7 +25,7 @@ function MenuItem({name,icon, hasChild, childIcon,active}) {
                 </chakra.span>
             </Box>
            
-        </Box>
+        </Link>
     )
 }
 

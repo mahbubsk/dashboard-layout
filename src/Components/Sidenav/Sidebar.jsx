@@ -29,7 +29,8 @@ function Sidebar() {
                 <MenuItem 
                     name="Dashboard"
                     icon={MdDashboard}
-                    hasChild={false}
+                    isChild={false}
+                    link="/dashboard"
                 />
 
                 <span onClick={()=>{
@@ -38,8 +39,9 @@ function Sidebar() {
                     <MenuItem 
                         name="Users"
                         icon={FaUserFriends}
-                        hasChild={false}
+                        isChild={false}
                         childIcon={FaChalkboardTeacher}
+                        link="/users"
                     />
                 </span>
 
@@ -48,8 +50,9 @@ function Sidebar() {
                     <MenuItem
                         name="Child of User"
                         icon={FaUserFriends}
-                        hasChild
+                        isChild
                         childIcon={FaChalkboardTeacher}
+                        link="/user/child-of-user"
                     />
                 }
                 
@@ -57,6 +60,7 @@ function Sidebar() {
                 <MenuItem 
                     name="Teacher"
                     icon={FaChalkboardTeacher}
+                    link="/teacher"
                 />
                 
                 
