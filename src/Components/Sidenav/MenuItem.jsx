@@ -1,29 +1,58 @@
-import React from 'react'
+import React from 'react';
+import {useParams, useLocation} from 'react-router-dom';
 import {
-    Box, chakra, Icon
+    Box, chakra, Icon, Flex
 } from "@chakra-ui/react";
 import {Link} from 'react-router-dom';
+import {MdKeyboardArrowRight} from 'react-icons/md';
+import "./MenuItem.css";
 
-function MenuItem({name,icon, isChild, childIcon,active, link}) {
+function MenuItem({name,icon, isChild,matchPath, hasChild, link}) {
+    const param = useParams();
+    const {pathname} = useLocation();
+    console.log(pathname);
+    // console.log(param);
+    const bgColor_Hover_Active = "#4a5568";
     return (
         <Link to={link}>
-            <Box 
+            <Flex
                 alignItems="center"
                 d="flex"
                 textAlign="center"
                 p="1"
-                _hover={{bg:"#4a5568"}}
-                bg={active && '#4a5568'}
+                _hover={{bg:bgColor_Hover_Active}}
                 pl={isChild && '4'}
                 cursor="pointer"
+                color={pathname===matchPath ? 'teal.100' : 'white'}
+                bg={pathname===matchPath && bgColor_Hover_Active}
+
             >
-                <Box w="60px" textAlign="center">
-                    <Icon as={icon} style={{width:"60px"}}/>
-                </Box>
-                <chakra.span>
-                    {name}
-                </chakra.span>
-            </Box>
+                <Flex 
+                    w="60px" 
+                >
+                    <Icon as={icon} minW="60px" ml="-5px"/>
+                </Flex>
+                <Flex 
+                    justifyContent="space-between"
+                    alignItems="center"
+                    w="100%"
+                >
+                    <chakra.span>
+                        {name}
+                    </chakra.span>
+                    <Box >
+                        {
+                            hasChild && <Icon 
+                                            as={MdKeyboardArrowRight} 
+                                            w="5" h="5" 
+                                            mr="3" 
+                                            className={hasChild && "arrow-icon"}
+                                        />
+                        }
+                    </Box>
+                </Flex>
+                
+            </Flex>
            
         </Link>
     )

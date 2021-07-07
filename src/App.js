@@ -6,8 +6,7 @@ import {
 import {
     Switch,
     BrowserRouter,
-    Route,
-    Link
+    Route
   } from "react-router-dom";
 import Sidebar from './Components/Sidenav/Sidebar';
 import Main from './Components/Main/Main';
@@ -26,12 +25,8 @@ function App() {
                     <Header/>
                     
                         <Switch>
-                            <Route exact path="/dashboard">
-                                <Dashboard/>
-                            </Route>
-                            <Route path="/users">
-                                <Users/>
-                            </Route>
+                            <Route exact path="/dashboard" component={Dashboard} />
+                            <Route path="/users/child-of-user" component={Users} />
                         </Switch>
                 </Box>
             </Flex>
