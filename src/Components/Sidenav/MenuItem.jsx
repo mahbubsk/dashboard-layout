@@ -14,7 +14,7 @@ function MenuItem({name,icon, isChild, childIcon,active, link}) {
                 p="1"
                 _hover={{bg:"#4a5568"}}
                 bg={active && '#4a5568'}
-                ml={isChild && '2'}
+                pl={isChild && '4'}
                 cursor="pointer"
             >
                 <Box w="60px" textAlign="center">
