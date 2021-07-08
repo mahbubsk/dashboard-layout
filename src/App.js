@@ -32,7 +32,7 @@ function App() {
                     <Box 
                         onClick={()=>{
                             if(window.innerWidth < 768 && !collapse){
-                                // setCollapse(true);
+                                setCollapse(true);
                             }
                              
                         }}
