@@ -11,7 +11,7 @@ import MenuItem from './MenuItem';
 
 
 function Sidebar({collapse, setCollapse, users, setUsers}) {
-
+    const [rotate, setRotate] = useState(true);
 
     return (
         <Flex 
@@ -42,6 +42,7 @@ function Sidebar({collapse, setCollapse, users, setUsers}) {
                 />
 
                 <span onClick={()=>{
+                    setRotate(!rotate);
                     if(window.innerWidth <= 768){
                         setUsers(!users);
                         setCollapse(false);
@@ -59,6 +60,8 @@ function Sidebar({collapse, setCollapse, users, setUsers}) {
                         isChild={false}
                         childIcon={FaChalkboardTeacher}
                         hasChild
+                        rotate={rotate}
+                        setRotate={setRotate}
                     />
                 </span>
 

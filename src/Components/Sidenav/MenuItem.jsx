@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useLocation} from 'react-router-dom';
 import {
     Box, chakra, Icon, Flex
 } from "@chakra-ui/react";
 import {Link} from 'react-router-dom';
 import {MdKeyboardArrowRight} from 'react-icons/md';
+import {IoIosArrowDown} from 'react-icons/io';
 import "./MenuItem.css";
 
-function MenuItem({name,icon, isChild,matchPath, hasChild, link}) {
+function MenuItem({name,icon, isChild,matchPath, hasChild, link, rotate, setRotate}) {
     const {pathname} = useLocation();
     const bgColor_Hover_Active = "#4a5568";
+    
+
     return (
         <Link to={link}>
             <Flex
@@ -39,12 +42,21 @@ function MenuItem({name,icon, isChild,matchPath, hasChild, link}) {
                     </chakra.span>
                     <Box >
                         {
-                            hasChild && <Icon 
-                                            as={MdKeyboardArrowRight} 
-                                            w="5" h="5" 
-                                            mr="3" 
-                                            className={hasChild && "arrow-icon"}
-                                        />
+                            hasChild && 
+                            <chakra.span 
+                                w="5" h="5" 
+                                mr="3" 
+                                onClick={()=>{
+                                    setRotate(!rotate);
+                                    // console.log()
+                                }}
+                            >
+                                <Icon 
+                                    w="5" h="5" 
+                                    as={rotate ? MdKeyboardArrowRight : IoIosArrowDown} 
+                                />
+                            </chakra.span>
+                            
                         }
                     </Box>
                 </Flex>
