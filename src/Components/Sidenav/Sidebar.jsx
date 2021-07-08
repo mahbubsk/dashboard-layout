@@ -10,22 +10,25 @@ import MenuItem from './MenuItem';
 
 
 
-function Sidebar() {
-
-    const [collapse, setCollapse] = useState(true);
-    const [users, setUsers] = useState(false);
+function Sidebar({collapse, setCollapse, users, setUsers}) {
 
 
     return (
         <Flex 
             bg="#2d3748" 
-            w={{base:"0px", sm:"0px", md:"60px", lg:collapse ? "300px" : "60px"}}
+            w={{
+                base: collapse ? "0" : "300px", 
+                sm: collapse ? "0" : "300px", 
+                md: collapse ? "60px" : "300px", 
+                lg: collapse ? "300px" : "60px"
+            }}
             transition="all 0.5s" 
             h="100vh"
             flexDirection="column"
             justifyContent="space-between"
             color="white"
             overflow="hidden"
+            // className="sidenav"
         >
             <Box>
                 <MenuItem 
@@ -37,10 +40,16 @@ function Sidebar() {
                 />
 
                 <span onClick={()=>{
-                    setUsers(!users)
-                    if(!collapse) {
-                        setCollapse(true);
+                    if(window.innerWidth <= 768){
+                        setUsers(!users);
+                        setCollapse(false);
+                    } else {
+                        setUsers(!users);
+                        if(!collapse){
+                            setCollapse(!collapse);
+                        }
                     }
+
                 }}>
                     <MenuItem 
                         name="Users"

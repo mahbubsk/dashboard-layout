@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {
     Flex, Box
@@ -17,13 +17,16 @@ import Dashboard from './Components/Dashboard/Dashboard';
 
 
 function App() {
+    const [collapse, setCollapse] = useState(true);
+    const [users, setUsers] = useState(false);
+
+
     return (
         <BrowserRouter>
             <Flex>
-                <Sidebar/>
-                <Box>
-                    <Header/>
-                    
+                <Sidebar collapse={collapse} users={users} setCollapse={setCollapse} setUsers={setUsers}/>
+                <Box w="100%">
+                    <Header collapse={collapse} users={users} setCollapse={setCollapse} setUsers={setUsers}/>
                         <Switch>
                             <Route exact path="/dashboard" component={Dashboard} />
                             <Route path="/users/child-of-user" component={Users} />

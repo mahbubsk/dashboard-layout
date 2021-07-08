@@ -1,5 +1,5 @@
 import React from 'react';
-import {useParams, useLocation} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import {
     Box, chakra, Icon, Flex
 } from "@chakra-ui/react";
@@ -8,10 +8,7 @@ import {MdKeyboardArrowRight} from 'react-icons/md';
 import "./MenuItem.css";
 
 function MenuItem({name,icon, isChild,matchPath, hasChild, link}) {
-    const param = useParams();
     const {pathname} = useLocation();
-    console.log(pathname);
-    // console.log(param);
     const bgColor_Hover_Active = "#4a5568";
     return (
         <Link to={link}>
@@ -53,6 +50,10 @@ function MenuItem({name,icon, isChild,matchPath, hasChild, link}) {
                 </Flex>
                 
             </Flex>
+
+            <Box>
+                
+            </Box>
            
         </Link>
     )
