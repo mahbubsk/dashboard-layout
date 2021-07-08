@@ -17,18 +17,20 @@ function Sidebar({collapse, setCollapse, users, setUsers}) {
         <Flex 
             bg="#2d3748" 
             w={{
-                base: collapse ? "0" : "300px", 
-                sm: collapse ? "0" : "300px", 
+                base: collapse ? "0" : "70%", 
+                sm: collapse ? "0" : "70%", 
                 md: collapse ? "60px" : "300px", 
                 lg: collapse ? "300px" : "60px"
             }}
-            transition="all 0.5s" 
+            transition="all 0.7s" 
             h="100vh"
             flexDirection="column"
             justifyContent="space-between"
             color="white"
             overflow="hidden"
-            // className="sidenav"
+            position="fixed"
+            top="0"
+            left="0"
         >
             <Box>
                 <MenuItem 
