@@ -27,12 +27,12 @@ function Sidebar({collapse, setCollapse, users, setUsers}) {
             flexDirection="column"
             justifyContent="space-between"
             color="white"
-            overflow="hidden"
-            position="fixed"
+            
+            position={{base: "fixed", sm: "fixed", md: "relative", lg: "relative"}}
             top="0"
             left="0"
         >
-            <Box>
+            <Box overflow="hidden">
                 <MenuItem 
                     name="Dashboard"
                     icon={MdDashboard}

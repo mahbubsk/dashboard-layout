@@ -1,28 +1,48 @@
 import React from 'react'
 import {
-    Box, Flex, Center, Icon, chakra
+    useDisclosure, Flex, Icon, Spacer, chakra
 } from '@chakra-ui/react'
 import {AiOutlineMenu} from 'react-icons/ai';
+import {FaUserCircle} from 'react-icons/fa';
+import SignIn from '../SignIn/SignIn';
 
 function Header({collapse, setCollapse, setUsers}) {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [placement, setPlacement] = React.useState("right");
     return (
         <Flex
             alignItems="center"
-            justifyContent="space-between"
+            // justifyContent="space-between"
             boxShadow="md" 
             h="60px" w="100%" 
             bg="#edf2f9"
         >
-            <Icon 
-                as={AiOutlineMenu} 
-                w={{base:'60px', sm:'60px', md:'0px', lg:'0px'}}
+            <chakra.span 
                 cursor="pointer"
-                onClick={()=>{
-                    setUsers(false)
-                    setCollapse(!collapse);
-                }}    
+                    onClick={()=>{
+                        setUsers(false)
+                        setCollapse(!collapse);
+                    }} 
+                >
+                <Icon 
+                    as={AiOutlineMenu} 
+                    w={{base:'60px', sm:'60px', md:'0px', lg:'0px'}}
+                       
+                />
+            </chakra.span>
+            
+            <Spacer />
+            <chakra.span cursor="pointer" onClick={onOpen}>
+                <Icon as={FaUserCircle} h="30px" w="60px"/> 
+            </chakra.span> 
+            <SignIn 
+                isOpen={isOpen} 
+                onOpen={onOpen} 
+                onClose={onClose} 
+                placement={placement} 
+                setPlacement={setPlacement}
             />
-            <Icon as="" w="60px" h="30px"/>
+
         </Flex>
     )
 }
