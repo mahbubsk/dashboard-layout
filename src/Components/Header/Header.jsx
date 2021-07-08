@@ -6,23 +6,23 @@ import {AiOutlineMenu} from 'react-icons/ai';
 import {FaUserCircle} from 'react-icons/fa';
 import SignIn from '../SignIn/SignIn';
 
-function Header({collapse, setCollapse, setUsers}) {
+function Header({collapse, setCollapse}) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [placement, setPlacement] = React.useState("right");
     return (
         <Flex
             alignItems="center"
             // justifyContent="space-between"
-            boxShadow="md" 
+            // boxShadow="2xl" 
             h="60px" w="100%" 
-            bg="#edf2f9"
+            bg="#F7FAFC"
+            borderBottom="1px solid #b1b0b0"
         >
             <chakra.span 
                 cursor="pointer"
-                    onClick={()=>{
-                        setUsers(false)
-                        setCollapse(!collapse);
-                    }} 
+                onClick={()=>{
+                    setCollapse(!collapse);
+                }} 
                 >
                 <Icon 
                     as={AiOutlineMenu} 

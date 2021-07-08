@@ -2,3 +2,40 @@
     transform: rotate(90deg);
 }
 
+.sidenav-item{
+    transition:left 0.3s;
+}
+
+        
+
+.sidenav-item:hover .tooltip-box{
+    display: block;
+    position: absolute;
+    left: 53px;
+    color: #424242;
+    background: transparent; 
+    width: 250px;
+}
+
+.tooltip-box{
+    display:none;
+}
+
+.tooltip-items {
+    background:white;
+    margin-left: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid rgba(45, 55, 72, 0.466);
+}
+
+.tooltip-item{
+    padding:5px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    list-style-type: none;
+}
+
+.tooltip-item:hover{
+    background: rgba(195, 193, 193, 0.308);
+}
