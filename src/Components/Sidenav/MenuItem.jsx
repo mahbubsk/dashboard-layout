@@ -14,6 +14,12 @@ function MenuItem(props) {
         menuState
     } = props;
 
+    const obj = {
+        address: {
+            road: "rwre543  534"
+        }
+    }
+
     const {pathname} = useLocation();
     const bgColor_Hover_Active = "#4a5568";
     
@@ -22,13 +28,12 @@ function MenuItem(props) {
         <>
             <Flex
                 alignItems="center"
-                d="flex"
-                p="1"
+                d="flex" p="1" h="10"
                 _hover={{bg:bgColor_Hover_Active}}
                 pl={isChild && '4'}
-                cursor="pointer"
-                color={pathname===matchPath ? 'teal.200' : 'white'}
-                position="relative">
+                cursor="pointer" position="relative"
+                color={pathname===matchPath ? 'teal.200' : 'white'} 
+                overflow="hidden">
 
                 <Flex w="60px">
                     <Icon as={icon} minW="60px" ml="-5px"/>
@@ -47,7 +52,7 @@ function MenuItem(props) {
                             <chakra.span w="5" h="5" mr="3">
                                 <Icon 
                                     w="5" h="5" 
-                                    as={
+                                    as={ 
                                         menuState 
                                         ? IoIosArrowDown 
                                         : MdKeyboardArrowRight
@@ -62,13 +67,15 @@ function MenuItem(props) {
 
            
         </>
-    )
+    ) 
+
     return (
         <>
             { 
                 link 
                     ? <Link to={link}> {menu} </Link> 
                     : menu 
+                // obj?.address?.road
             } 
         </>
     )

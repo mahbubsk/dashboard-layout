@@ -12,12 +12,18 @@ function Header({collapse, setCollapse}) {
     return (
         <Flex
             alignItems="center"
-            // justifyContent="space-between"
-            // boxShadow="2xl" 
-            h="60px" w="100%" 
+            boxShadow="md" 
+            h="60px"  
             bg="#F7FAFC"
             borderBottom="1px solid #b1b0b0"
+            // position="fixed"
+            // top="0"
+            // left="0"
+            // transition="all 0.5s"
+            // w="100%"
+            // paddingLeft={{md: collapse ? "70px" : " 240px", lg: collapse ? "280px" : "70px"}}
         >
+            <Icon as={FaUserCircle} />
             <chakra.span 
                 cursor="pointer"
                 onClick={()=>{
@@ -30,6 +36,8 @@ function Header({collapse, setCollapse}) {
                        
                 />
             </chakra.span>
+
+
             
             <Spacer />
             <chakra.span cursor="pointer" onClick={onOpen}>

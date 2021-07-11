@@ -2,6 +2,19 @@
     transform: rotate(90deg);
 }
 
+
+
+
+.sidenav-wrapper::-webkit-scrollbar{
+    width:8px !important;
+}
+
+.sidenav-wrapper::-webkit-scrollbar-thumb{
+    
+    background-color: #808895;
+    border-radius: 6px;
+}
+
 .sidenav-item{
     transition:left 0.3s;
 }
@@ -9,12 +22,12 @@
         
 
 .sidenav-item:hover .tooltip-box{
-    display: block;
-    position: absolute;
-    left: 53px;
-    color: #424242;
-    background: transparent; 
-    width: 250px;
+    display: block !important;
+    position: absolute !important;
+    left: 55px !important;
+    color: #424242 !important;
+    background: transparent !important; 
+    width: 250px !important;
 }
 
 .tooltip-box{
@@ -22,15 +35,16 @@
 }
 
 .tooltip-items {
-    background:white;
-    margin-left: 10px;
-    text-align: center;
-    border-radius: 10px;
-    border: 1px solid rgba(45, 55, 72, 0.466);
+    background:white !important;
+    margin-left: 10px !important;
+    text-align: center !important;
+    border-radius:0 0 10px 10px;
+    border: 1px solid rgba(45, 55, 72, 0.466) !important;
+    height: 250px;
 }
 
 .tooltip-item{
-    padding:5px 10px;
+    padding:5px 10px; 
     cursor: pointer;
     transition: all 0.2s;
     list-style-type: none;

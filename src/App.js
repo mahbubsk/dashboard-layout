@@ -28,7 +28,9 @@ function App() {
                     setCollapse={setCollapse} 
                 />
                 <Box w="100%">
-                    <Header collapse={collapse} setCollapse={setCollapse}/>
+                    <Box position="relative">
+                        <Header collapse={collapse} setCollapse={setCollapse}/>
+                    </Box>
                     <Box 
                         onClick={()=>{
                             if(window.innerWidth < 768 && !collapse){
